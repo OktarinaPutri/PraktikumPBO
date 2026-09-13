@@ -1,3 +1,4 @@
+
 package Tugas;
 
 /**
@@ -6,18 +7,26 @@ package Tugas;
  */
 public class Main {
     public static void main(String[] args) {
-        Mobil mobil1 = new Mobil("Rolls Royce", "Ghost", 2022, 12);
-        Mobil mobil2 = new Mobil("Bugatti", "Veyron", 2021, 29);
-        System.out.println("\nMenguji menyalakan mesin");
-        mobil1.startEngine();
-        mobil2.startEngine();
-        mobil1.display();
-        mobil2.display();
-
-        System.out.println("\nMengubah tipe");
-        mobil2.gantiTipe( 20);
-
-        System.out.println("\nInformasi mobil setelah pengubahan");
-        mobil2.display();
+        
+        // 1. Membuat objek Pekerja
+        System.out.println("INFORMASI PEKERJA");
+        Pekerja pekerja1 = new Pekerja("Buminian", 25, "Hr",8000000);
+        System.out.println(pekerja1.toString());
+        
+        // 2. Ubah nama menggunakan setter
+        System.out.println("\n=== SETELAH NAMA DIUBAH ===");
+        pekerja1.setNama("Buminiora");
+        System.out.println(pekerja1.toString());
+        
+        // 3. Uji akses langsung dengan atribut
+        System.out.println("\nUJI AKSES LANGSUNG");
+        
+        // Akses public (pekerjaan) seharusnya bisa
+        System.out.println("Pekerjaan (public): " + pekerja1.pekerjaan);
+        
+        // Akses protected (usia) seharusnya bisa karena package sama
+        System.out.println("Usia (protected)  : " + pekerja1.usia + "tahun");
+        System.out.println("Nama (via getter) : " + pekerja1.getNama());
+        System.out.println("Gaji (via getter) : " + pekerja1.getGaji());
     }
 }
